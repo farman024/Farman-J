@@ -693,11 +693,12 @@
     const saved = localStorage.getItem('fj-theme') || 'dark';
     if (saved === 'light') {
       root.classList.add('light');
-      themeIcon.innerHTML = sunIcon;
+      themeIcon.innerHTML = moonIcon;  // in light mode, show moon
+;
     }
     themeToggle.addEventListener('click', () => {
       const isLight = root.classList.toggle('light');
-      themeIcon.innerHTML = isLight ? sunIcon : moonIcon;
+      themeIcon.innerHTML = isLight ? moonIcon : sunIcon;;
       localStorage.setItem('fj-theme', isLight ? 'light' : 'dark');
     });
   }
