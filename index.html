@@ -692,13 +692,14 @@
   if (themeToggle && themeIcon) {
     const saved = localStorage.getItem('fj-theme') || 'dark';
     if (saved === 'light') {
-      root.classList.add('light');
-      themeIcon.innerHTML = moonIcon;  // in light mode, show moon
-;
-    }
+  root.classList.add('light');
+  themeIcon.innerHTML = moonIcon;
+} else {
+  themeIcon.innerHTML = sunIcon;  // dark mode → show sun
+}
     themeToggle.addEventListener('click', () => {
       const isLight = root.classList.toggle('light');
-      themeIcon.innerHTML = isLight ? moonIcon : sunIcon;;
+      themeIcon.innerHTML = isLight ? moonIcon : sunIcon;
       localStorage.setItem('fj-theme', isLight ? 'light' : 'dark');
     });
   }
